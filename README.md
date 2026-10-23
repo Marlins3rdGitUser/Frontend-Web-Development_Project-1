@@ -76,8 +76,8 @@ Verkosovelluksesta löytyy myös "Save current list" ja "Load saved list" nappit
 
 ## Kuvakaappaukset
 
-[Kuvakaapaus1](README_Images/ProjectFunctionalScreenshot1.jng)
-[Kuvakaapaus2](README_Images/ProjectFunctionalScreenshot2.jng)
+[Kuvakaapaus1](README_Images/ProjectFunctionalScreenshot1.png)
+[Kuvakaapaus2](README_Images/ProjectFunctionalScreenshot2.png)
 
 ## Tunnetut virheet / puutteet
 
