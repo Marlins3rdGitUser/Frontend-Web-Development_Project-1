@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GIB Manager</title>
+        <link rel="stylesheet" href="Styles/styles.css">
+        <script src="Scripts/scripts.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1 class="centerify">GAME ITEM BUDGET <br> MANAGER</H1>
+        </header>
+        <main>
+            <section id="primaryList">
+                <div id="topButtons" class="boxify flexcenter">
+                    <form id="itemListForm">
+                        <label for="itemName"> Item name: </label>
+                        <input type="text" id="itemName">
+                        <label for="itemCost"> Item cost: </label>
+                        <input type="number" id="itemCost">
+                        <label for="itemWeight"> Importance: </label>
+                        <input type="number" id="itemWeight">
+                        <span style="padding: .5rem;"></span>
+                        <button id="addItemButton">Add</button>
+                    </form>
+                    <div id="budget&SaveLoad">
+                        <button id="saveButton">Save current List</button>
+                        <span style="padding: .5rem;"></span>
+                        <button id="loadButton">Load saved List</button>
+                        <span style="padding: 1rem;"></span>
+                        <label for="budgetInput">Budget:</label>
+                        <input type="number" id="budgetInput" placeholder="Enter budget">
+                    </div>
+                </div>
+                <table id="itemTable">
+                    <thead>
+                        <tr>
+                            <th>Item name</th>
+                            <th>Item cost</th>
+                            <th>Importance</th>
+                            <th class="removeItemTH">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="itemTableBody">
+                    </tbody>
+                </table>
+                <div id="results" class="boxify centerify">
+                    <label for="totalCostText">Total cost:</label>
+                    <input type="number" id="totalCostText" class="resultvalue" readonly>
+                    <span style="padding: 0.5rem"></span>
+                    <label for="remainingBudgetText">Remaining:</label>
+                    <input type="number" id="remainingBudgetText" class="resultvalue" readonly>
+                    <span style="padding: 1rem;"></span>
+                    <button id="buttonSecondaryList">Removal Recomendation</button>
+                </div>
+            </section>
+
+
+            <section id="secondaryList">
+                <div id="topSection" class="boxify">
+                    <h2>Recommended to remove.</h2>   
+                </div>
+                <table id="removalTable">
+                    <thead>
+                        <tr>
+                            <th>Item name</th>
+                            <th>Item cost</th>
+                            <th>Importance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="removalTableBody">
+                    </tbody>
+                </table>
+                <div id="midSection" class="boxify">
+                    <h2>Recommended to keep.</h2>
+                </div>
+                <table id="noRemovalTable">
+                    <thead>
+                        <tr>
+                            <th>Item name</th>
+                            <th>Item cost</th>
+                            <th>Importance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="noRemovalTableBody">
+                    </tbody>
+                </table>
+                <h1 id="message" class="boxify">Hello! :D</h1>
+                <div id="bottomSection" class="boxify">
+                <div id="other">
+                    <lable for="overBudgetText">Overbudget </lable>
+                    <input type="number" id="overBudgetText" readonly>
+                    <button id="buttonPrimaryList">Return to the list.</button>
+                </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
