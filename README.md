@@ -35,7 +35,7 @@ Vanha piiretty rautalankamalli
 
 - **Julkaistu sovellus:** [Linkki](https://marlins3rdgituser.github.io/Frontend-Web-Development_Project-1/)
 - **GitHub-repositorio:** [... Sinä olet jo siinä.](https://github.com/Marlins3rdGitUser/Frontend-Web-Development_Project-1/tree/main)
-- **Projektin videoesittely:** [Linkki](https://example.com/)
+- **Projektin videoesittely:** [Not done]
   
 ## Tietoja sovelluksesta
 
@@ -76,8 +76,8 @@ Verkosovelluksesta löytyy myös "Save current list" ja "Load saved list" nappit
 
 ## Kuvakaappaukset
 
-[Kuvakaapaus1](README_Images/ProjectFunctionalScreenshot1.png)
-[Kuvakaapaus2](README_Images/ProjectFunctionalScreenshot2.png)
+[Kuvakaapaus1](README_Images/ProjectFunctionalScreenshot1.jng)
+[Kuvakaapaus2](README_Images/ProjectFunctionalScreenshot2.jng)
 
 ## Tunnetut virheet / puutteet
 
