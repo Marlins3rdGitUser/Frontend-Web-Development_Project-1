@@ -43,6 +43,7 @@ buttonPrimarySection.addEventListener("click", function () {
     // And it does this. Read upahead for more!
     removalTableBody.innerHTML = ""
     noRemovalTableBody.innerHTML = ""
+    calculateBudgets();
 });
 
 // Section 1 Scripts:
@@ -116,37 +117,48 @@ function calculateBudgets(){
 // You may notice that I remove the DELETE buttons entire.
 // This is because copying them breaks them entirely and I do not understand how "event degledation" works and how it fixes it,
 // so i will do this the way I understand it better.
-
-
-saveButton.addEventListener("click", function() {
-    // Reusing other objects and code is handy...
+    saveButton.addEventListener("click", function() {
+    // Reusing other objects and code is handy...'
+    // Deleting all of the delete buttons.
     noRemovalTableBody.innerHTML = "";
     noRemovalTableBody.innerHTML = itemTableBody.innerHTML;
     var rows = noRemovalTableBody.querySelectorAll("tr");
     rows.forEach(function(row){
         row.cells[3].remove();
     });
+
+    // Save the List.
     localStorage.setItem(
         "savedTable", noRemovalTableBody.innerHTML
     );
+    // Save the Budget input.
     localStorage.setItem(
         "savedBudget", budgetInput.value
     );
     alert("Data saved.");
 }); 
+
 loadButton.addEventListener("click", function() {
+    //Loading the table.
     loadedTableData = localStorage.getItem("savedTable");
+    //Checking if it's emtpy
     if (loadedTableData === null){
+        // If yes, then error message.
         alert("No table data found.");
     } else {
+        // Otherwise we add the table data to the main table.
         itemTableBody.innerHTML = loadedTableData; 
+        // Then we create the delete buttons for all of the rows.
         var rows = itemTableBody.querySelectorAll("tr");
         rows.forEach(function(row){
+            // Make the button.
             var table_deleterButton = document.createElement("td");
             var deleterButton = document.createElement("button");
+            // Button values and classes.
             deleterButton.textContent = "X";
             deleterButton.classList = "removeItem";
             table_deleterButton.classList = "removeItemTD";
+            // Appending and giving the eventlistener
             table_deleterButton.append(deleterButton);
             row.append(table_deleterButton);
             deleterButton.addEventListener("click", function () {
@@ -154,12 +166,15 @@ loadButton.addEventListener("click", function() {
                 calculateBudgets();
             });
         });
+        // And assuming that there was table data, it also gets the saved budget.
         loadedBudgetData = localStorage.getItem("savedBudget")
         if (loadedTableData === null) {} 
         else {
+            // Assuming not empty, we added it's value to the budget input field.
             budgetInput.value = loadedBudgetData;
         };
     };
+    // Call cuz why not.
     calculateBudgets();
 });
 
