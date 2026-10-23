@@ -167,7 +167,7 @@ loadButton.addEventListener("click", function() {
 // Checking the best items to remove.
 function determineItemsToRemove() {
     // First, we check if we over the budget and that there is something in the list.
-    if (remainingText.value < 0 && totalCostText > 0){
+    if (remainingText.value < 0 && totalCostText.value > 0 && budgetInput.value > 0){
         // If we do, then we copy everything from the original table.
         noRemovalTableBody.innerHTML = itemTableBody.innerHTML;
         // then we remove all of the delete buttons, as they server no use.
@@ -190,18 +190,23 @@ function determineItemsToRemove() {
                 // First, get cost and weight. Then divide cost with weight to get Cost per Weight ratio.
                 var cost = parseFloat(row.cells[1].textContent);
                 var weight = parseFloat(row.cells[2].textContent);
-                var ratio = cost / weight;
-                // If the current ratio is higher than the current highest ratio, then...
-                if (ratio > highestRatio) {
-                    // Set the highest ratio to the current one and save the current row as a variable.
-                    highestRatio = ratio;
+                if (weight <= 0){
+                    highestRatio = 999999999;
                     highestRatioRow = row;
+                } else if (cost > 0) {
+                    var ratio = cost / weight;
+                    // If the current ratio is higher than the current highest ratio, then...
+                    if (ratio > highestRatio) {
+                        // Set the highest ratio to the current one and save the current row as a variable.
+                        highestRatio = ratio;
+                        highestRatioRow = row;
+                    };
                 };
-            })
+            });
             // once the all rows are checked, we proceed to get the cost of the row with highest ratio 
             // and deduct it from the overbudget.
-            var deduction = parseFloat(highestRatioRow.cells[1].textContent);
-            overbudget = overbudget - deduction;
+            var reduction = parseFloat(highestRatioRow.cells[1].textContent);
+            overbudget = overbudget - reduction;
             // After which we append the row from the hidden table to the removal table.
             removalTableBody.append(highestRatioRow);
             // Now the loop is complete and ready to repeat.
@@ -212,7 +217,7 @@ function determineItemsToRemove() {
             };
         };
         // Show everything and hide the special message.
-        overBudgetText.value = remainingText.value;
+        overBudgetText.value = remainingText.value * -1;
         removalTable.hidden = false;
         noRemovalTable.hidden = false;
         topSection.hidden = false;
